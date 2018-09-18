@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Slush</title>
+    <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,800" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+      html {
+        font-family: 'Assistant', sans-serif;
+        background-color: #ffffff;
+        color: #30cd9a;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 100px;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        font-size: 100px;
+        display: inline-block;
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+
+      p {
+        color: #000000;
+        font-size: 50px;
+        font-weight: 200;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-weight: 200;
+        display: inline-block;
+        font-size: 40px;
+        margin: 25px;
+        margin-bottom: 5px;
+      }
+
+      h4 {
+        margin: 5px;
+        color: #000000;
+        font-weight: 200;
+        margin-bottom: 50px;
+      }
+
+      a {
+        margin-bottom: 50px;
+        text-decoration: underline;
+        color: #000000;
+        font-weight: 200;
+        font-size: 12px;
+
+      }
+
+      img {
+        width: 70%;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>slush</h1>
+    <p>The modern economy.</p>
+
+    <div id="timer">
+      <h3 id="days">00</h3>
+      <h3 id="hours">00</h3>
+      <h3 id="min">00</h3>
+      <h3 id="sec">00</h3>
+    </div>
+    <h4>
+      Launching January 1
+      <br />
+      <a href="http://indev.slush.sh">(sneak peek)</a>
+    </h4>
+
+    <img src="https://github.com/bucktower/slush-splash/raw/master/Splash.png" alt="screenshot" />
+
+    <script>
+      function countdown() {
+        var currentDate = new Date();
+        var eventDate = new Date(2019, 1, 1);
+        var milliSeconds = eventDate.getTime() - currentDate.getTime();
+        var seconds = parseInt(milliSeconds / 1000);
+        var minutes = parseInt(seconds / 60);
+        var hours = parseInt(minutes / 60);
+        var days = parseInt(hours / 24);
+        seconds -= minutes * 60;
+        minutes -= hours * 60;
+        hours -= days * 24;
+
+        $('#days').text(days);
+        $('#hours').text(hours);
+        $('#min').text(minutes);
+        $('#sec').text(seconds);
+      }
+      countdown();
+      window.setInterval(countdown, 1000);
+    </script>
+  </body>
+</html>
